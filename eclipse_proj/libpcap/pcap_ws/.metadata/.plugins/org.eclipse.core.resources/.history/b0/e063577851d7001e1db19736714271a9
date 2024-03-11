@@ -1,0 +1,18 @@
+/*
+ * msg_validator.h
+ *
+ *  Created on: Feb 29, 2024
+ *      Author: ismael
+ */
+
+#ifndef MSG_VALIDATOR_H_
+#define MSG_VALIDATOR_H_
+
+
+
+void check_zipyheader_len(uint8_t *data, uint16_t *ptrOffset);
+uint8_t check_validMessage(uint8_t *data);
+
+
+
+#endif /* MSG_VALIDATOR_H_ */

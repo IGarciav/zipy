@@ -1,0 +1,396 @@
+12:43:09 **** Clean-only build of configuration Debug for project perception__pcap ****
+make clean 
+rm -rf ./serl_odo/serl_odo_capp.d ./serl_odo/serl_odo_capp.o ./serl_odo/serl_odo_odoc.d ./serl_odo/serl_odo_odoc.o
+rm -rf ./serl_objc/serl_obj_objc_rad.d ./serl_objc/serl_obj_objc_rad.o
+rm -rf ./serl_dstd/serl_dstd.d ./serl_dstd/serl_dstd.o
+rm -rf ./main.d ./main.o ./msg_validator.d ./msg_validator.o
+rm -rf perception__pcap
+ 
+12:43:10 **** Build of configuration Debug for project perception__pcap ****
+make all 
+Building file: ../serl_odo/serl_odo_capp.c
+Invoking: GCC C Compiler
+gcc -I/home/ismael/libpcap/libpcap/ -I/home/ismael/libpcap/pcap_ws/perception__pcap/serl_odo -I/home/ismael/libpcap/pcap_ws/perception__pcap/serl_objc -I/home/ismael/libpcap/pcap_ws/perception__pcap/serl_dstd -I/home/ismael/libpcap/pcap_ws/perception__pcap/dstd -I/home/ismael/libpcap/pcap_ws/perception__pcap -I/home/ismael/libpcap/pcap_ws/perception__pcap/odoc -I/home/ismael/libpcap/pcap_ws/perception__pcap/objc -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"serl_odo/serl_odo_capp.d" -MT"serl_odo/serl_odo_capp.o" -o "serl_odo/serl_odo_capp.o" "../serl_odo/serl_odo_capp.c"
+In file included from ../serl_odo/serl_odo_capp.c:3:
+/home/ismael/libpcap/pcap_ws/perception__pcap/dstd/dstring.h:40: warning: ignoring #pragma warning  [-Wunknown-pragmas]
+   40 | #pragma warning(disable:4273)
+      | 
+In file included from ../serl_odo/serl_odo_capp.c:3:
+/home/ismael/libpcap/pcap_ws/perception__pcap/dstd/dstring.h:108: warning: ignoring #pragma warning  [-Wunknown-pragmas]
+  108 | #pragma warning( default : 4273)
+      | 
+Finished building: ../serl_odo/serl_odo_capp.c
+ 
+Building file: ../serl_odo/serl_odo_odoc.c
+Invoking: GCC C Compiler
+gcc -I/home/ismael/libpcap/libpcap/ -I/home/ismael/libpcap/pcap_ws/perception__pcap/serl_odo -I/home/ismael/libpcap/pcap_ws/perception__pcap/serl_objc -I/home/ismael/libpcap/pcap_ws/perception__pcap/serl_dstd -I/home/ismael/libpcap/pcap_ws/perception__pcap/dstd -I/home/ismael/libpcap/pcap_ws/perception__pcap -I/home/ismael/libpcap/pcap_ws/perception__pcap/odoc -I/home/ismael/libpcap/pcap_ws/perception__pcap/objc -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"serl_odo/serl_odo_odoc.d" -MT"serl_odo/serl_odo_odoc.o" -o "serl_odo/serl_odo_odoc.o" "../serl_odo/serl_odo_odoc.c"
+In file included from ../serl_odo/serl_odo_odoc.c:3:
+/home/ismael/libpcap/pcap_ws/perception__pcap/dstd/dstring.h:40: warning: ignoring #pragma warning  [-Wunknown-pragmas]
+   40 | #pragma warning(disable:4273)
+      | 
+In file included from ../serl_odo/serl_odo_odoc.c:3:
+/home/ismael/libpcap/pcap_ws/perception__pcap/dstd/dstring.h:108: warning: ignoring #pragma warning  [-Wunknown-pragmas]
+  108 | #pragma warning( default : 4273)
+      | 
+Finished building: ../serl_odo/serl_odo_odoc.c
+ 
+Building file: ../serl_objc/serl_obj_objc_rad.c
+Invoking: GCC C Compiler
+gcc -I/home/ismael/libpcap/libpcap/ -I/home/ismael/libpcap/pcap_ws/perception__pcap/serl_odo -I/home/ismael/libpcap/pcap_ws/perception__pcap/serl_objc -I/home/ismael/libpcap/pcap_ws/perception__pcap/serl_dstd -I/home/ismael/libpcap/pcap_ws/perception__pcap/dstd -I/home/ismael/libpcap/pcap_ws/perception__pcap -I/home/ismael/libpcap/pcap_ws/perception__pcap/odoc -I/home/ismael/libpcap/pcap_ws/perception__pcap/objc -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"serl_objc/serl_obj_objc_rad.d" -MT"serl_objc/serl_obj_objc_rad.o" -o "serl_objc/serl_obj_objc_rad.o" "../serl_objc/serl_obj_objc_rad.c"
+In file included from ../serl_objc/serl_obj_objc_rad.c:3:
+/home/ismael/libpcap/pcap_ws/perception__pcap/dstd/dstring.h:40: warning: ignoring #pragma warning  [-Wunknown-pragmas]
+   40 | #pragma warning(disable:4273)
+      | 
+In file included from ../serl_objc/serl_obj_objc_rad.c:3:
+/home/ismael/libpcap/pcap_ws/perception__pcap/dstd/dstring.h:108: warning: ignoring #pragma warning  [-Wunknown-pragmas]
+  108 | #pragma warning( default : 4273)
+      | 
+Finished building: ../serl_objc/serl_obj_objc_rad.c
+ 
+Building file: ../serl_dstd/serl_dstd.c
+Invoking: GCC C Compiler
+gcc -I/home/ismael/libpcap/libpcap/ -I/home/ismael/libpcap/pcap_ws/perception__pcap/serl_odo -I/home/ismael/libpcap/pcap_ws/perception__pcap/serl_objc -I/home/ismael/libpcap/pcap_ws/perception__pcap/serl_dstd -I/home/ismael/libpcap/pcap_ws/perception__pcap/dstd -I/home/ismael/libpcap/pcap_ws/perception__pcap -I/home/ismael/libpcap/pcap_ws/perception__pcap/odoc -I/home/ismael/libpcap/pcap_ws/perception__pcap/objc -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"serl_dstd/serl_dstd.d" -MT"serl_dstd/serl_dstd.o" -o "serl_dstd/serl_dstd.o" "../serl_dstd/serl_dstd.c"
+In file included from ../serl_dstd/serl_dstd.c:9:
+/home/ismael/libpcap/pcap_ws/perception__pcap/dstd/dstring.h:40: warning: ignoring #pragma warning  [-Wunknown-pragmas]
+   40 | #pragma warning(disable:4273)
+      | 
+In file included from ../serl_dstd/serl_dstd.c:9:
+/home/ismael/libpcap/pcap_ws/perception__pcap/dstd/dstring.h:108: warning: ignoring #pragma warning  [-Wunknown-pragmas]
+  108 | #pragma warning( default : 4273)
+      | 
+Finished building: ../serl_dstd/serl_dstd.c
+ 
+Building file: ../main.c
+Invoking: GCC C Compiler
+gcc -I/home/ismael/libpcap/libpcap/ -I/home/ismael/libpcap/pcap_ws/perception__pcap/serl_odo -I/home/ismael/libpcap/pcap_ws/perception__pcap/serl_objc -I/home/ismael/libpcap/pcap_ws/perception__pcap/serl_dstd -I/home/ismael/libpcap/pcap_ws/perception__pcap/dstd -I/home/ismael/libpcap/pcap_ws/perception__pcap -I/home/ismael/libpcap/pcap_ws/perception__pcap/odoc -I/home/ismael/libpcap/pcap_ws/perception__pcap/objc -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"main.d" -MT"main.o" -o "main.o" "../main.c"
+../main.c: In function ‘main’:
+../main.c:82:17: warning: unused variable ‘subnet_mask’ [-Wunused-variable]
+   82 |     bpf_u_int32 subnet_mask, ip;
+      |                 ^~~~~~~~~~~
+../main.c:76:7: warning: unused variable ‘errbuf’ [-Wunused-variable]
+   76 |  char errbuf[PCAP_ERRBUF_SIZE];
+      |       ^~~~~~
+../main.c: In function ‘my_packet_handler’:
+../main.c:179:15: warning: assignment discards ‘const’ qualifier from pointer target type [-Wdiscarded-qualifiers]
+  179 |  temp_pointer = packet + 18;
+      |               ^
+../main.c:187:16: warning: assignment discards ‘const’ qualifier from pointer target type [-Wdiscarded-qualifiers]
+  187 |   temp_pointer = packet + 34;
+      |                ^
+../main.c:191:21: warning: passing argument 1 of ‘bigTosmall_endian’ from incompatible pointer type [-Wincompatible-pointer-types]
+  191 |   bigTosmall_endian(&udpinfo.length,2);
+      |                     ^~~~~~~~~~~~~~~
+      |                     |
+      |                     uint16_t * {aka short unsigned int *}
+../main.c:57:33: note: expected ‘uint8_t *’ {aka ‘unsigned char *’} but argument is of type ‘uint16_t *’ {aka ‘short unsigned int *’}
+   57 | void bigTosmall_endian(uint8_t *data,uint16_t size)
+      |                        ~~~~~~~~~^~~~
+../main.c:194:16: warning: assignment discards ‘const’ qualifier from pointer target type [-Wdiscarded-qualifiers]
+  194 |   temp_pointer = packet + 34 + 8;
+      |                ^
+../main.c:214:16: warning: assignment discards ‘const’ qualifier from pointer target type [-Wdiscarded-qualifiers]
+  214 |   temp_pointer = packet + 34;
+      |                ^
+../main.c:244:13: warning: type defaults to ‘int’ in declaration of ‘frames’ [-Wimplicit-int]
+  244 |      static frames;
+      |             ^~~~~~
+../main.c:255:21: warning: unused variable ‘pos’ [-Wunused-variable]
+  255 |            uint32_t pos = SERL_OBJ_DecodeStruct_OBJC_rad_raw_data_S(&buff[ptrOffset], SERL_OBJ_OBJC_RAD_RAW_DATA_S_SIZE, &radarData);
+      |                     ^~~
+../main.c:151:20: warning: variable ‘payload_identication’ set but not used [-Wunused-but-set-variable]
+  151 |     static uint8_t payload_identication[2];
+      |                    ^~~~~~~~~~~~~~~~~~~~
+../main.c:148:9: warning: unused variable ‘payload_length’ [-Wunused-variable]
+  148 |     int payload_length;
+      |         ^~~~~~~~~~~~~~
+../main.c:147:9: warning: unused variable ‘tcp_header_length’ [-Wunused-variable]
+  147 |     int tcp_header_length;
+      |         ^~~~~~~~~~~~~~~~~
+../main.c:146:9: warning: unused variable ‘ip_header_length’ [-Wunused-variable]
+  146 |     int ip_header_length;
+      |         ^~~~~~~~~~~~~~~~
+../main.c:142:19: warning: unused variable ‘payload’ [-Wunused-variable]
+  142 |     const u_char *payload;
+      |                   ^~~~~~~
+../main.c:141:19: warning: unused variable ‘tcp_header’ [-Wunused-variable]
+  141 |     const u_char *tcp_header;
+      |                   ^~~~~~~~~~
+../main.c:115:14: warning: unused variable ‘frameCounter’ [-Wunused-variable]
+  115 |  static uint frameCounter;
+      |              ^~~~~~~~~~~~
+At top level:
+../main.c:115:14: warning: ‘frameCounter’ defined but not used [-Wunused-variable]
+../main.c: In function ‘main’:
+../main.c:91:9: warning: ‘ip’ is used uninitialized in this function [-Wuninitialized]
+   91 |     if (pcap_compile(fp, &filter, filter_exp, 0, ip) == -1)
+      |         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Finished building: ../main.c
+ 
+Building file: ../msg_validator.c
+Invoking: GCC C Compiler
+gcc -I/home/ismael/libpcap/libpcap/ -I/home/ismael/libpcap/pcap_ws/perception__pcap/serl_odo -I/home/ismael/libpcap/pcap_ws/perception__pcap/serl_objc -I/home/ismael/libpcap/pcap_ws/perception__pcap/serl_dstd -I/home/ismael/libpcap/pcap_ws/perception__pcap/dstd -I/home/ismael/libpcap/pcap_ws/perception__pcap -I/home/ismael/libpcap/pcap_ws/perception__pcap/odoc -I/home/ismael/libpcap/pcap_ws/perception__pcap/objc -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"msg_validator.d" -MT"msg_validator.o" -o "msg_validator.o" "../msg_validator.c"
+../msg_validator.c: In function ‘check_validMessage’:
+../msg_validator.c:30:12: warning: unused variable ‘zipy_messageLen’ [-Wunused-variable]
+   30 |  uint16_t *zipy_messageLen =(uint16_t*) &data[1];
+      |            ^~~~~~~~~~~~~~~
+Finished building: ../msg_validator.c
+ 
+Building target: perception__pcap
+Invoking: GCC C Linker
+gcc -L/home/ismael/libpcap/libpcap -Wl,-soname=libpcap.so.1 -o "perception__pcap"  ./serl_odo/serl_odo_capp.o ./serl_odo/serl_odo_odoc.o  ./serl_objc/serl_obj_objc_rad.o  ./serl_dstd/serl_dstd.o  ./main.o ./msg_validator.o    -Wl,--start-group -lpcap -Wl,--end-group
+Finished building target: perception__pcap
+ 
+12:43:27 **** Incremental Build of configuration Debug for project perception__pcap ****
+make all 
+Building file: ../main.c
+Invoking: GCC C Compiler
+gcc -I/home/ismael/libpcap/libpcap/ -I/home/ismael/libpcap/pcap_ws/perception__pcap/serl_odo -I/home/ismael/libpcap/pcap_ws/perception__pcap/serl_objc -I/home/ismael/libpcap/pcap_ws/perception__pcap/serl_dstd -I/home/ismael/libpcap/pcap_ws/perception__pcap/dstd -I/home/ismael/libpcap/pcap_ws/perception__pcap -I/home/ismael/libpcap/pcap_ws/perception__pcap/odoc -I/home/ismael/libpcap/pcap_ws/perception__pcap/objc -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"main.d" -MT"main.o" -o "main.o" "../main.c"
+../main.c: In function ‘main’:
+../main.c:82:17: warning: unused variable ‘subnet_mask’ [-Wunused-variable]
+   82 |     bpf_u_int32 subnet_mask, ip;
+      |                 ^~~~~~~~~~~
+../main.c:76:7: warning: unused variable ‘errbuf’ [-Wunused-variable]
+   76 |  char errbuf[PCAP_ERRBUF_SIZE];
+      |       ^~~~~~
+../main.c: In function ‘my_packet_handler’:
+../main.c:175:15: warning: assignment discards ‘const’ qualifier from pointer target type [-Wdiscarded-qualifiers]
+  175 |  temp_pointer = packet + 18;
+      |               ^
+../main.c:183:16: warning: assignment discards ‘const’ qualifier from pointer target type [-Wdiscarded-qualifiers]
+  183 |   temp_pointer = packet + 34;
+      |                ^
+../main.c:187:21: warning: passing argument 1 of ‘bigTosmall_endian’ from incompatible pointer type [-Wincompatible-pointer-types]
+  187 |   bigTosmall_endian(&udpinfo.length,2);
+      |                     ^~~~~~~~~~~~~~~
+      |                     |
+      |                     uint16_t * {aka short unsigned int *}
+../main.c:57:33: note: expected ‘uint8_t *’ {aka ‘unsigned char *’} but argument is of type ‘uint16_t *’ {aka ‘short unsigned int *’}
+   57 | void bigTosmall_endian(uint8_t *data,uint16_t size)
+      |                        ~~~~~~~~~^~~~
+../main.c:190:16: warning: assignment discards ‘const’ qualifier from pointer target type [-Wdiscarded-qualifiers]
+  190 |   temp_pointer = packet + 34 + 8;
+      |                ^
+../main.c:210:16: warning: assignment discards ‘const’ qualifier from pointer target type [-Wdiscarded-qualifiers]
+  210 |   temp_pointer = packet + 34;
+      |                ^
+../main.c:240:13: warning: type defaults to ‘int’ in declaration of ‘frames’ [-Wimplicit-int]
+  240 |      static frames;
+      |             ^~~~~~
+../main.c:251:21: warning: unused variable ‘pos’ [-Wunused-variable]
+  251 |            uint32_t pos = SERL_OBJ_DecodeStruct_OBJC_rad_raw_data_S(&buff[ptrOffset], SERL_OBJ_OBJC_RAD_RAW_DATA_S_SIZE, &radarData);
+      |                     ^~~
+../main.c:147:20: warning: variable ‘payload_identication’ set but not used [-Wunused-but-set-variable]
+  147 |     static uint8_t payload_identication[2];
+      |                    ^~~~~~~~~~~~~~~~~~~~
+../main.c:115:14: warning: unused variable ‘frameCounter’ [-Wunused-variable]
+  115 |  static uint frameCounter;
+      |              ^~~~~~~~~~~~
+At top level:
+../main.c:115:14: warning: ‘frameCounter’ defined but not used [-Wunused-variable]
+../main.c: In function ‘main’:
+../main.c:91:9: warning: ‘ip’ is used uninitialized in this function [-Wuninitialized]
+   91 |     if (pcap_compile(fp, &filter, filter_exp, 0, ip) == -1)
+      |         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Finished building: ../main.c
+ 
+Building target: perception__pcap
+Invoking: GCC C Linker
+gcc -L/home/ismael/libpcap/libpcap -Wl,-soname=libpcap.so.1 -o "perception__pcap"  ./serl_odo/serl_odo_capp.o ./serl_odo/serl_odo_odoc.o  ./serl_objc/serl_obj_objc_rad.o  ./serl_dstd/serl_dstd.o  ./main.o ./msg_validator.o    -Wl,--start-group -lpcap -Wl,--end-group
+Finished building target: perception__pcap
+ 
+12:44:17 **** Incremental Build of configuration Debug for project perception__pcap ****
+make all 
+Building file: ../main.c
+Invoking: GCC C Compiler
+gcc -I/home/ismael/libpcap/libpcap/ -I/home/ismael/libpcap/pcap_ws/perception__pcap/serl_odo -I/home/ismael/libpcap/pcap_ws/perception__pcap/serl_objc -I/home/ismael/libpcap/pcap_ws/perception__pcap/serl_dstd -I/home/ismael/libpcap/pcap_ws/perception__pcap/dstd -I/home/ismael/libpcap/pcap_ws/perception__pcap -I/home/ismael/libpcap/pcap_ws/perception__pcap/odoc -I/home/ismael/libpcap/pcap_ws/perception__pcap/objc -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"main.d" -MT"main.o" -o "main.o" "../main.c"
+../main.c: In function ‘main’:
+../main.c:76:7: warning: unused variable ‘errbuf’ [-Wunused-variable]
+   76 |  char errbuf[PCAP_ERRBUF_SIZE];
+      |       ^~~~~~
+../main.c: In function ‘my_packet_handler’:
+../main.c:175:15: warning: assignment discards ‘const’ qualifier from pointer target type [-Wdiscarded-qualifiers]
+  175 |  temp_pointer = packet + 18;
+      |               ^
+../main.c:183:16: warning: assignment discards ‘const’ qualifier from pointer target type [-Wdiscarded-qualifiers]
+  183 |   temp_pointer = packet + 34;
+      |                ^
+../main.c:187:21: warning: passing argument 1 of ‘bigTosmall_endian’ from incompatible pointer type [-Wincompatible-pointer-types]
+  187 |   bigTosmall_endian(&udpinfo.length,2);
+      |                     ^~~~~~~~~~~~~~~
+      |                     |
+      |                     uint16_t * {aka short unsigned int *}
+../main.c:57:33: note: expected ‘uint8_t *’ {aka ‘unsigned char *’} but argument is of type ‘uint16_t *’ {aka ‘short unsigned int *’}
+   57 | void bigTosmall_endian(uint8_t *data,uint16_t size)
+      |                        ~~~~~~~~~^~~~
+../main.c:190:16: warning: assignment discards ‘const’ qualifier from pointer target type [-Wdiscarded-qualifiers]
+  190 |   temp_pointer = packet + 34 + 8;
+      |                ^
+../main.c:210:16: warning: assignment discards ‘const’ qualifier from pointer target type [-Wdiscarded-qualifiers]
+  210 |   temp_pointer = packet + 34;
+      |                ^
+../main.c:240:13: warning: type defaults to ‘int’ in declaration of ‘frames’ [-Wimplicit-int]
+  240 |      static frames;
+      |             ^~~~~~
+../main.c:251:21: warning: unused variable ‘pos’ [-Wunused-variable]
+  251 |            uint32_t pos = SERL_OBJ_DecodeStruct_OBJC_rad_raw_data_S(&buff[ptrOffset], SERL_OBJ_OBJC_RAD_RAW_DATA_S_SIZE, &radarData);
+      |                     ^~~
+../main.c:147:20: warning: variable ‘payload_identication’ set but not used [-Wunused-but-set-variable]
+  147 |     static uint8_t payload_identication[2];
+      |                    ^~~~~~~~~~~~~~~~~~~~
+../main.c:115:14: warning: unused variable ‘frameCounter’ [-Wunused-variable]
+  115 |  static uint frameCounter;
+      |              ^~~~~~~~~~~~
+At top level:
+../main.c:115:14: warning: ‘frameCounter’ defined but not used [-Wunused-variable]
+../main.c: In function ‘main’:
+../main.c:91:9: warning: ‘ip’ is used uninitialized in this function [-Wuninitialized]
+   91 |     if (pcap_compile(fp, &filter, filter_exp, 0, ip) == -1)
+      |         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Finished building: ../main.c
+ 
+Building target: perception__pcap
+Invoking: GCC C Linker
+gcc -L/home/ismael/libpcap/libpcap -Wl,-soname=libpcap.so.1 -o "perception__pcap"  ./serl_odo/serl_odo_capp.o ./serl_odo/serl_odo_odoc.o  ./serl_objc/serl_obj_objc_rad.o  ./serl_dstd/serl_dstd.o  ./main.o ./msg_validator.o    -Wl,--start-group -lpcap -Wl,--end-group
+Finished building target: perception__pcap
+ 
+12:56:27 **** Incremental Build of configuration Debug for project perception__pcap ****
+make all 
+Building file: ../main.c
+Invoking: GCC C Compiler
+gcc -I/home/ismael/libpcap/libpcap/ -I/home/ismael/libpcap/pcap_ws/perception__pcap/serl_odo -I/home/ismael/libpcap/pcap_ws/perception__pcap/serl_objc -I/home/ismael/libpcap/pcap_ws/perception__pcap/serl_dstd -I/home/ismael/libpcap/pcap_ws/perception__pcap/dstd -I/home/ismael/libpcap/pcap_ws/perception__pcap -I/home/ismael/libpcap/pcap_ws/perception__pcap/odoc -I/home/ismael/libpcap/pcap_ws/perception__pcap/objc -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"main.d" -MT"main.o" -o "main.o" "../main.c"
+../main.c: In function ‘main’:
+../main.c:76:7: warning: unused variable ‘errbuf’ [-Wunused-variable]
+   76 |  char errbuf[PCAP_ERRBUF_SIZE];
+      |       ^~~~~~
+../main.c: In function ‘my_packet_handler’:
+../main.c:175:15: warning: assignment discards ‘const’ qualifier from pointer target type [-Wdiscarded-qualifiers]
+  175 |  temp_pointer = packet + 18;
+      |               ^
+../main.c:183:16: warning: assignment discards ‘const’ qualifier from pointer target type [-Wdiscarded-qualifiers]
+  183 |   temp_pointer = packet + 34;
+      |                ^
+../main.c:190:16: warning: assignment discards ‘const’ qualifier from pointer target type [-Wdiscarded-qualifiers]
+  190 |   temp_pointer = packet + 34 + 8;
+      |                ^
+../main.c:210:16: warning: assignment discards ‘const’ qualifier from pointer target type [-Wdiscarded-qualifiers]
+  210 |   temp_pointer = packet + 34;
+      |                ^
+../main.c:242:13: warning: type defaults to ‘int’ in declaration of ‘frames’ [-Wimplicit-int]
+  242 |      static frames;
+      |             ^~~~~~
+../main.c:147:20: warning: variable ‘payload_identication’ set but not used [-Wunused-but-set-variable]
+  147 |     static uint8_t payload_identication[2];
+      |                    ^~~~~~~~~~~~~~~~~~~~
+../main.c:115:14: warning: unused variable ‘frameCounter’ [-Wunused-variable]
+  115 |  static uint frameCounter;
+      |              ^~~~~~~~~~~~
+At top level:
+../main.c:115:14: warning: ‘frameCounter’ defined but not used [-Wunused-variable]
+../main.c: In function ‘main’:
+../main.c:91:9: warning: ‘ip’ is used uninitialized in this function [-Wuninitialized]
+   91 |     if (pcap_compile(fp, &filter, filter_exp, 0, ip) == -1)
+      |         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Finished building: ../main.c
+ 
+Building target: perception__pcap
+Invoking: GCC C Linker
+gcc -L/home/ismael/libpcap/libpcap -Wl,-soname=libpcap.so.1 -o "perception__pcap"  ./serl_odo/serl_odo_capp.o ./serl_odo/serl_odo_odoc.o  ./serl_objc/serl_obj_objc_rad.o  ./serl_dstd/serl_dstd.o  ./main.o ./msg_validator.o    -Wl,--start-group -lpcap -Wl,--end-group
+Finished building target: perception__pcap
+ 
+12:37:06 **** Incremental Build of configuration Debug for project perception__pcap ****
+make all 
+Building file: ../main.c
+Invoking: GCC C Compiler
+gcc -I/home/ismael/libpcap/libpcap/ -I/home/ismael/libpcap/pcap_ws/perception__pcap/serl_odo -I/home/ismael/libpcap/pcap_ws/perception__pcap/serl_objc -I/home/ismael/libpcap/pcap_ws/perception__pcap/serl_dstd -I/home/ismael/libpcap/pcap_ws/perception__pcap/dstd -I/home/ismael/libpcap/pcap_ws/perception__pcap -I/home/ismael/libpcap/pcap_ws/perception__pcap/odoc -I/home/ismael/libpcap/pcap_ws/perception__pcap/objc -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"main.d" -MT"main.o" -o "main.o" "../main.c"
+../main.c: In function ‘init_pcap’:
+../main.c:76:8: warning: unused variable ‘errbuf’ [-Wunused-variable]
+   76 |   char errbuf[PCAP_ERRBUF_SIZE];
+      |        ^~~~~~
+../main.c: In function ‘my_packet_handler’:
+../main.c:180:15: warning: assignment discards ‘const’ qualifier from pointer target type [-Wdiscarded-qualifiers]
+  180 |  temp_pointer = packet + 18;
+      |               ^
+../main.c:188:16: warning: assignment discards ‘const’ qualifier from pointer target type [-Wdiscarded-qualifiers]
+  188 |   temp_pointer = packet + 34;
+      |                ^
+../main.c:195:16: warning: assignment discards ‘const’ qualifier from pointer target type [-Wdiscarded-qualifiers]
+  195 |   temp_pointer = packet + 34 + 8;
+      |                ^
+../main.c:214:16: warning: assignment discards ‘const’ qualifier from pointer target type [-Wdiscarded-qualifiers]
+  214 |   temp_pointer = packet + 34;
+      |                ^
+../main.c:246:13: warning: type defaults to ‘int’ in declaration of ‘frames’ [-Wimplicit-int]
+  246 |      static frames;
+      |             ^~~~~~
+../main.c:152:20: warning: variable ‘payload_identication’ set but not used [-Wunused-but-set-variable]
+  152 |     static uint8_t payload_identication[2];
+      |                    ^~~~~~~~~~~~~~~~~~~~
+../main.c:120:14: warning: unused variable ‘frameCounter’ [-Wunused-variable]
+  120 |  static uint frameCounter;
+      |              ^~~~~~~~~~~~
+At top level:
+../main.c:120:14: warning: ‘frameCounter’ defined but not used [-Wunused-variable]
+../main.c: In function ‘init_pcap’:
+../main.c:91:10: warning: ‘ip’ is used uninitialized in this function [-Wuninitialized]
+   91 |      if (pcap_compile(fp, &filter, filter_exp, 0, ip) == -1)
+      |          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Finished building: ../main.c
+ 
+Building target: perception__pcap
+Invoking: GCC C Linker
+gcc -L/home/ismael/libpcap/libpcap -Wl,-soname=libpcap.so.1 -o "perception__pcap"  ./serl_odo/serl_odo_capp.o ./serl_odo/serl_odo_odoc.o  ./serl_objc/serl_obj_objc_rad.o  ./serl_dstd/serl_dstd.o  ./main.o ./msg_validator.o    -Wl,--start-group -lpcap -Wl,--end-group
+Finished building target: perception__pcap
+ 
+12:37:13 **** Incremental Build of configuration Debug for project perception__pcap ****
+make all 
+make: Nothing to be done for 'all'.
+12:38:03 **** Incremental Build of configuration Debug for project perception__pcap ****
+make all 
+make: Nothing to be done for 'all'.
+12:38:23 **** Incremental Build of configuration Debug for project perception__pcap ****
+make all 
+Building file: ../main.c
+Invoking: GCC C Compiler
+gcc -I/home/ismael/libpcap/libpcap/ -I/home/ismael/libpcap/pcap_ws/perception__pcap/serl_odo -I/home/ismael/libpcap/pcap_ws/perception__pcap/serl_objc -I/home/ismael/libpcap/pcap_ws/perception__pcap/serl_dstd -I/home/ismael/libpcap/pcap_ws/perception__pcap/dstd -I/home/ismael/libpcap/pcap_ws/perception__pcap -I/home/ismael/libpcap/pcap_ws/perception__pcap/odoc -I/home/ismael/libpcap/pcap_ws/perception__pcap/objc -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"main.d" -MT"main.o" -o "main.o" "../main.c"
+../main.c: In function ‘init_pcap’:
+../main.c:76:8: warning: unused variable ‘errbuf’ [-Wunused-variable]
+   76 |   char errbuf[PCAP_ERRBUF_SIZE];
+      |        ^~~~~~
+../main.c: In function ‘my_packet_handler’:
+../main.c:180:15: warning: assignment discards ‘const’ qualifier from pointer target type [-Wdiscarded-qualifiers]
+  180 |  temp_pointer = packet + 18;
+      |               ^
+../main.c:188:16: warning: assignment discards ‘const’ qualifier from pointer target type [-Wdiscarded-qualifiers]
+  188 |   temp_pointer = packet + 34;
+      |                ^
+../main.c:195:16: warning: assignment discards ‘const’ qualifier from pointer target type [-Wdiscarded-qualifiers]
+  195 |   temp_pointer = packet + 34 + 8;
+      |                ^
+../main.c:214:16: warning: assignment discards ‘const’ qualifier from pointer target type [-Wdiscarded-qualifiers]
+  214 |   temp_pointer = packet + 34;
+      |                ^
+../main.c:246:13: warning: type defaults to ‘int’ in declaration of ‘frames’ [-Wimplicit-int]
+  246 |      static frames;
+      |             ^~~~~~
+../main.c:152:20: warning: variable ‘payload_identication’ set but not used [-Wunused-but-set-variable]
+  152 |     static uint8_t payload_identication[2];
+      |                    ^~~~~~~~~~~~~~~~~~~~
+../main.c:120:14: warning: unused variable ‘frameCounter’ [-Wunused-variable]
+  120 |  static uint frameCounter;
+      |              ^~~~~~~~~~~~
+At top level:
+../main.c:120:14: warning: ‘frameCounter’ defined but not used [-Wunused-variable]
+../main.c: In function ‘init_pcap’:
+../main.c:91:10: warning: ‘ip’ is used uninitialized in this function [-Wuninitialized]
+   91 |      if (pcap_compile(fp, &filter, filter_exp, 0, ip) == -1)
+      |          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Finished building: ../main.c
+ 
+Building target: perception__pcap
+Invoking: GCC C Linker
+gcc -L/home/ismael/libpcap/libpcap -Wl,-soname=libpcap.so.1 -o "perception__pcap"  ./serl_odo/serl_odo_capp.o ./serl_odo/serl_odo_odoc.o  ./serl_objc/serl_obj_objc_rad.o  ./serl_dstd/serl_dstd.o  ./main.o ./msg_validator.o    -Wl,--start-group -lpcap -Wl,--end-group
+Finished building target: perception__pcap
+ 
+12:38:37 **** Incremental Build of configuration Debug for project perception__pcap ****
+make all 
+make: Nothing to be done for 'all'.

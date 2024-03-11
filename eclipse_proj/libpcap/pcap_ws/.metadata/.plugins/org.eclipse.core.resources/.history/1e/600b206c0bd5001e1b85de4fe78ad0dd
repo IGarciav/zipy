@@ -1,0 +1,32 @@
+/*
+ * main.c
+ *
+ *  Created on: Feb 26, 2024
+ *      Author: ismael
+ */
+
+
+/* Compile with: gcc main.c -lpcap */
+#include <stdio.h>
+#include <pcap/pcap.h>
+
+int main(int argc, char **argv) {
+    char *device; /* Name of device (e.g. eth0, wlan0) */
+    char error_buffer[PCAP_ERRBUF_SIZE]; /* Size defined in pcap.h */
+
+    /* Find a device */
+    device = pcap_lookupdev(error_buffer);
+    if (device == NULL) {
+        printf("Error finding device: %s\n", error_buffer);
+        return 1;
+    }
+	printf("hello worldss\n");
+
+    printf("Network device found: %s\n", device);
+
+
+    const char *fname = "dummy.";
+	const char errbuff[100] = {0};
+    pcap_t * pcap_data = pcap_open_offline(fname,errbuff);
+    return 0;
+}

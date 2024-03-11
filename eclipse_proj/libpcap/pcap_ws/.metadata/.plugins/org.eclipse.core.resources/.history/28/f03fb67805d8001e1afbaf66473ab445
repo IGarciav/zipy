@@ -1,0 +1,441 @@
+#include "dstdint.h"
+#include "dassert.h"
+#include "dstring.h"
+#include "tmp_pdf.h"
+
+#include "serl_dstd.h"
+#include "serl_obj_data_ids.h"
+
+#include "serl_obj_objc_rad.h"
+
+
+
+#define SO_Dec_u8 Decode_u8
+#define SO_Dec_u16 Decode_u16
+#define SO_Dec_u32 Decode_u32
+#define SO_Dec_u64 Decode_u64
+#define SO_Dec_si8 Decode_si8
+#define SO_Dec_si16 Decode_si16
+#define SO_Dec_si32 Decode_si32
+#define SO_Dec_f32 Decode_f32
+#define SO_Dec_double Decode_double
+#define SO_Dec_bool_T Decode_bool_T
+#define SO_Enc_u8 Encode_u8
+#define SO_Enc_u16 Encode_u16
+#define SO_Enc_u32 Encode_u32
+#define SO_Enc_u64 Encode_u64
+#define SO_Enc_si8 Encode_si8
+#define SO_Enc_si16 Encode_si16
+#define SO_Enc_si32 Encode_si32
+#define SO_Enc_f32 Encode_f32
+#define SO_Enc_double Encode_double
+#define SO_Enc_bool_T Encode_bool_T
+
+
+void SO_Dec_struct_OBJC_rad_raw_data_S(
+    const u8* const p,
+    u32* const p_pos,
+    struct OBJC_rad_raw_data_S* const p_value)
+{
+    p_value->cycle_number = SO_Dec_u32(p, p_pos);
+    p_value->timestamp_us = SO_Dec_u32(p, p_pos);
+    SO_Dec_struct_OBJC_rad_raw_dyn_det_array_S(p, p_pos, &p_value->dyn_data);
+    SO_Dec_struct_OBJC_rad_raw_sta_det_array_S(p, p_pos, &p_value->sta_data);
+    SO_Dec_struct_OBJC_rad_raw_fs_det_array_S(p, p_pos, &p_value->fs_data);
+    SO_Dec_struct_OBJC_rad_sensor_cfg_S(p, p_pos, &p_value->sensor_cfg);
+    p_value->radar_id = SO_Dec_u8(p, p_pos);
+    p_value->bandwidth_meas1 = SO_Dec_u8(p, p_pos);
+    p_value->bandwidth_meas2 = SO_Dec_u8(p, p_pos);
+    p_value->unambiguous_vel_meas1 = SO_Dec_u8(p, p_pos);
+    p_value->unambiguous_vel_meas2 = SO_Dec_u8(p, p_pos);
+    p_value->is_available = SO_Dec_u8(p, p_pos);
+
+    printf("pos debug: :%d \n", *p_pos);
+
+}
+
+void SO_Enc_struct_OBJC_rad_raw_data_S(
+    u8* const p,
+    u32* const p_pos,
+    const struct OBJC_rad_raw_data_S* const p_value)
+{
+    SO_Enc_u32(p, p_pos, p_value->cycle_number);
+    SO_Enc_u32(p, p_pos, p_value->timestamp_us);
+    SO_Enc_struct_OBJC_rad_raw_dyn_det_array_S(p, p_pos, &p_value->dyn_data);
+    SO_Enc_struct_OBJC_rad_raw_sta_det_array_S(p, p_pos, &p_value->sta_data);
+    SO_Enc_struct_OBJC_rad_raw_fs_det_array_S(p, p_pos, &p_value->fs_data);
+    SO_Enc_struct_OBJC_rad_sensor_cfg_S(p, p_pos, &p_value->sensor_cfg);
+    SO_Enc_u8(p, p_pos, p_value->radar_id);
+    SO_Enc_u8(p, p_pos, p_value->bandwidth_meas1);
+    SO_Enc_u8(p, p_pos, p_value->bandwidth_meas2);
+    SO_Enc_u8(p, p_pos, p_value->unambiguous_vel_meas1);
+    SO_Enc_u8(p, p_pos, p_value->unambiguous_vel_meas2);
+    SO_Enc_u8(p, p_pos, p_value->is_available);
+}
+
+void SO_Dec_struct_OBJC_rad_raw_dyn_det_array_S(
+    const u8* const p,
+    u32* const p_pos,
+    struct OBJC_rad_raw_dyn_det_array_S* const p_value)
+{
+    u8 i_dim1;
+
+    p_value->num_detections = Decode_u8(p, p_pos);
+    p_value->max_num_detections = Decode_u8(p, p_pos);
+
+    if (p_value->max_num_detections > (sizeof(p_value->detections) / sizeof(p_value->detections[0])))
+    {
+        _ASSERT(FALSE);
+    }
+
+    if (p_value->num_detections > p_value->max_num_detections)
+    {
+        _ASSERT(FALSE);
+    }
+
+    for(i_dim1 = 0; i_dim1 < p_value->max_num_detections; i_dim1++)
+    {
+        SO_Dec_struct_OBJC_rad_raw_dynamic_det_S(p, p_pos, &p_value->detections[i_dim1]);
+    }
+}
+
+void SO_Enc_struct_OBJC_rad_raw_dyn_det_array_S(
+    u8* const p,
+    u32* const p_pos,
+    const struct OBJC_rad_raw_dyn_det_array_S* const p_value)
+{
+    u8 i_dim1;
+
+    SO_Enc_u8(p, p_pos, p_value->num_detections);
+    SO_Enc_u8(p, p_pos, p_value->max_num_detections);
+
+    if (p_value->max_num_detections > (sizeof(p_value->detections) / sizeof(p_value->detections[0])))
+    {
+        _ASSERT(FALSE);
+    }
+
+    if (p_value->num_detections > p_value->max_num_detections)
+    {
+        _ASSERT(FALSE);
+    }
+
+    for(i_dim1 = 0; i_dim1 < p_value->max_num_detections; i_dim1++)
+    {
+        SO_Enc_struct_OBJC_rad_raw_dynamic_det_S(p, p_pos, &p_value->detections[i_dim1]);
+    }
+}
+
+void SO_Dec_struct_OBJC_rad_raw_dynamic_det_S(
+    const u8* const p,
+    u32* const p_pos,
+    struct OBJC_rad_raw_dynamic_det_S* const p_value)
+{
+    p_value->cog_doppler_256th_m_s = SO_Dec_si16(p, p_pos);
+    p_value->azimuth_10th_deg = SO_Dec_si16(p, p_pos);
+    p_value->cog_range_256th_m = SO_Dec_u16(p, p_pos);
+    p_value->elevation_10th_deg = SO_Dec_si16(p, p_pos);
+    p_value->std_elevation_2deg = SO_Dec_u8(p, p_pos);
+    p_value->std_azimuth_10th_deg = SO_Dec_u8(p, p_pos);
+    p_value->power_db = SO_Dec_u8(p, p_pos);
+    p_value->snr_half_db = SO_Dec_u8(p, p_pos);
+    p_value->w_range_10db_bin = SO_Dec_u8(p, p_pos);
+    p_value->w_doppler_10db_bin = SO_Dec_u8(p, p_pos);
+    p_value->beam_number = SO_Dec_u8(p, p_pos);
+    p_value->no_infrastructure = SO_Dec_u8(p, p_pos);
+    p_value->valid_x_beam = SO_Dec_u8(p, p_pos);
+}
+
+void SO_Enc_struct_OBJC_rad_raw_dynamic_det_S(
+    u8* const p,
+    u32* const p_pos,
+    const struct OBJC_rad_raw_dynamic_det_S* const p_value)
+{
+    SO_Enc_si16(p, p_pos, p_value->cog_doppler_256th_m_s);
+    SO_Enc_si16(p, p_pos, p_value->azimuth_10th_deg);
+    SO_Enc_u16(p, p_pos, p_value->cog_range_256th_m);
+    SO_Enc_si16(p, p_pos, p_value->elevation_10th_deg);
+    SO_Enc_u8(p, p_pos, p_value->std_elevation_2deg);
+    SO_Enc_u8(p, p_pos, p_value->std_azimuth_10th_deg);
+    SO_Enc_u8(p, p_pos, p_value->power_db);
+    SO_Enc_u8(p, p_pos, p_value->snr_half_db);
+    SO_Enc_u8(p, p_pos, p_value->w_range_10db_bin);
+    SO_Enc_u8(p, p_pos, p_value->w_doppler_10db_bin);
+    SO_Enc_u8(p, p_pos, p_value->beam_number);
+    SO_Enc_u8(p, p_pos, p_value->no_infrastructure);
+    SO_Enc_u8(p, p_pos, p_value->valid_x_beam);
+}
+
+void SO_Dec_struct_OBJC_rad_raw_freespace_det_S(
+    const u8* const p,
+    u32* const p_pos,
+    struct OBJC_rad_raw_freespace_det_S* const p_value)
+{
+    p_value->cog_range_256th_m = SO_Dec_u16(p, p_pos);
+    p_value->power_db = SO_Dec_u8(p, p_pos);
+    p_value->snr_half_db = SO_Dec_u8(p, p_pos);
+    p_value->beam_number = SO_Dec_u8(p, p_pos);
+}
+
+void SO_Enc_struct_OBJC_rad_raw_freespace_det_S(
+    u8* const p,
+    u32* const p_pos,
+    const struct OBJC_rad_raw_freespace_det_S* const p_value)
+{
+    SO_Enc_u16(p, p_pos, p_value->cog_range_256th_m);
+    SO_Enc_u8(p, p_pos, p_value->power_db);
+    SO_Enc_u8(p, p_pos, p_value->snr_half_db);
+    SO_Enc_u8(p, p_pos, p_value->beam_number);
+}
+
+void SO_Dec_struct_OBJC_rad_raw_fs_det_array_S(
+    const u8* const p,
+    u32* const p_pos,
+    struct OBJC_rad_raw_fs_det_array_S* const p_value)
+{
+    u8 i_dim1;
+
+    p_value->num_detections = Decode_u8(p, p_pos);
+    p_value->max_num_detections = Decode_u8(p, p_pos);
+
+    if (p_value->max_num_detections > (sizeof(p_value->detections) / sizeof(p_value->detections[0])))
+    {
+        _ASSERT(FALSE);
+    }
+
+    if (p_value->num_detections > p_value->max_num_detections)
+    {
+        _ASSERT(FALSE);
+    }
+
+    for(i_dim1 = 0; i_dim1 < p_value->max_num_detections; i_dim1++)
+    {
+        SO_Dec_struct_OBJC_rad_raw_freespace_det_S(p, p_pos, &p_value->detections[i_dim1]);
+    }
+}
+
+void SO_Enc_struct_OBJC_rad_raw_fs_det_array_S(
+    u8* const p,
+    u32* const p_pos,
+    const struct OBJC_rad_raw_fs_det_array_S* const p_value)
+{
+    u8 i_dim1;
+
+    SO_Enc_u8(p, p_pos, p_value->num_detections);
+    SO_Enc_u8(p, p_pos, p_value->max_num_detections);
+
+    if (p_value->max_num_detections > (sizeof(p_value->detections) / sizeof(p_value->detections[0])))
+    {
+        _ASSERT(FALSE);
+    }
+
+    if (p_value->num_detections > p_value->max_num_detections)
+    {
+        _ASSERT(FALSE);
+    }
+
+    for(i_dim1 = 0; i_dim1 < p_value->max_num_detections; i_dim1++)
+    {
+        SO_Enc_struct_OBJC_rad_raw_freespace_det_S(p, p_pos, &p_value->detections[i_dim1]);
+    }
+}
+
+void SO_Dec_struct_OBJC_rad_raw_sta_det_array_S(
+    const u8* const p,
+    u32* const p_pos,
+    struct OBJC_rad_raw_sta_det_array_S* const p_value)
+{
+    u8 i_dim1;
+
+    p_value->num_detections = Decode_u8(p, p_pos);
+    p_value->max_num_detections = Decode_u8(p, p_pos);
+
+    if (p_value->max_num_detections > (sizeof(p_value->detections) / sizeof(p_value->detections[0])))
+    {
+        _ASSERT(FALSE);
+    }
+
+    if (p_value->num_detections > p_value->max_num_detections)
+    {
+        _ASSERT(FALSE);
+    }
+
+    for(i_dim1 = 0; i_dim1 < p_value->max_num_detections; i_dim1++)
+    {
+        SO_Dec_struct_OBJC_rad_raw_static_det_S(p, p_pos, &p_value->detections[i_dim1]);
+    }
+}
+
+void SO_Enc_struct_OBJC_rad_raw_sta_det_array_S(
+    u8* const p,
+    u32* const p_pos,
+    const struct OBJC_rad_raw_sta_det_array_S* const p_value)
+{
+    u8 i_dim1;
+
+    SO_Enc_u8(p, p_pos, p_value->num_detections);
+    SO_Enc_u8(p, p_pos, p_value->max_num_detections);
+
+    if (p_value->max_num_detections > (sizeof(p_value->detections) / sizeof(p_value->detections[0])))
+    {
+        _ASSERT(FALSE);
+    }
+
+    if (p_value->num_detections > p_value->max_num_detections)
+    {
+        _ASSERT(FALSE);
+    }
+
+    for(i_dim1 = 0; i_dim1 < p_value->max_num_detections; i_dim1++)
+    {
+        SO_Enc_struct_OBJC_rad_raw_static_det_S(p, p_pos, &p_value->detections[i_dim1]);
+    }
+}
+
+void SO_Dec_struct_OBJC_rad_raw_static_det_S(
+    const u8* const p,
+    u32* const p_pos,
+    struct OBJC_rad_raw_static_det_S* const p_value)
+{
+    p_value->cog_doppler_256th_m_s = SO_Dec_si16(p, p_pos);
+    p_value->azimuth_10th_deg = SO_Dec_si16(p, p_pos);
+    p_value->cog_range_256th_m = SO_Dec_u16(p, p_pos);
+    p_value->elevation_10th_deg = SO_Dec_si16(p, p_pos);
+    p_value->std_elevation_2deg = SO_Dec_u8(p, p_pos);
+    p_value->std_azimuth_10th_deg = SO_Dec_u8(p, p_pos);
+    p_value->power_db = SO_Dec_u8(p, p_pos);
+    p_value->snr_half_db = SO_Dec_u8(p, p_pos);
+    p_value->beam_number = SO_Dec_u8(p, p_pos);
+}
+
+void SO_Enc_struct_OBJC_rad_raw_static_det_S(
+    u8* const p,
+    u32* const p_pos,
+    const struct OBJC_rad_raw_static_det_S* const p_value)
+{
+    SO_Enc_si16(p, p_pos, p_value->cog_doppler_256th_m_s);
+    SO_Enc_si16(p, p_pos, p_value->azimuth_10th_deg);
+    SO_Enc_u16(p, p_pos, p_value->cog_range_256th_m);
+    SO_Enc_si16(p, p_pos, p_value->elevation_10th_deg);
+    SO_Enc_u8(p, p_pos, p_value->std_elevation_2deg);
+    SO_Enc_u8(p, p_pos, p_value->std_azimuth_10th_deg);
+    SO_Enc_u8(p, p_pos, p_value->power_db);
+    SO_Enc_u8(p, p_pos, p_value->snr_half_db);
+    SO_Enc_u8(p, p_pos, p_value->beam_number);
+}
+
+void SO_Dec_struct_OBJC_rad_sensor_cfg_S(
+    const u8* const p,
+    u32* const p_pos,
+    struct OBJC_rad_sensor_cfg_S* const p_value)
+{
+    SO_Dec_struct_OBJC_rad_sw_version_S(p, p_pos, &p_value->sw_version);
+    p_value->x_mm = SO_Dec_si16(p, p_pos);
+    p_value->y_mm = SO_Dec_si16(p, p_pos);
+    p_value->angle_10th_deg = SO_Dec_si16(p, p_pos);
+    p_value->fov_start_angle_10th_deg = SO_Dec_si16(p, p_pos);
+    p_value->fov_end_angle_10th_deg = SO_Dec_si16(p, p_pos);
+    p_value->radar_type = SO_Dec_u8(p, p_pos);
+    p_value->z_cm = SO_Dec_u8(p, p_pos);
+    p_value->is_valid = SO_Dec_u8(p, p_pos);
+}
+
+void SO_Enc_struct_OBJC_rad_sensor_cfg_S(
+    u8* const p,
+    u32* const p_pos,
+    const struct OBJC_rad_sensor_cfg_S* const p_value)
+{
+    SO_Enc_struct_OBJC_rad_sw_version_S(p, p_pos, &p_value->sw_version);
+    SO_Enc_si16(p, p_pos, p_value->x_mm);
+    SO_Enc_si16(p, p_pos, p_value->y_mm);
+    SO_Enc_si16(p, p_pos, p_value->angle_10th_deg);
+    SO_Enc_si16(p, p_pos, p_value->fov_start_angle_10th_deg);
+    SO_Enc_si16(p, p_pos, p_value->fov_end_angle_10th_deg);
+    SO_Enc_u8(p, p_pos, p_value->radar_type);
+    SO_Enc_u8(p, p_pos, p_value->z_cm);
+    SO_Enc_u8(p, p_pos, p_value->is_valid);
+}
+
+void SO_Dec_struct_OBJC_rad_sw_version_S(
+    const u8* const p,
+    u32* const p_pos,
+    struct OBJC_rad_sw_version_S* const p_value)
+{
+    p_value->z4_app = SO_Dec_u16(p, p_pos);
+    p_value->z4_major = SO_Dec_u16(p, p_pos);
+    p_value->z4_minor = SO_Dec_u16(p, p_pos);
+}
+
+void SO_Enc_struct_OBJC_rad_sw_version_S(
+    u8* const p,
+    u32* const p_pos,
+    const struct OBJC_rad_sw_version_S* const p_value)
+{
+    SO_Enc_u16(p, p_pos, p_value->z4_app);
+    SO_Enc_u16(p, p_pos, p_value->z4_major);
+    SO_Enc_u16(p, p_pos, p_value->z4_minor);
+}
+
+
+/* Encode function for OBJC_rad_raw_data_S */
+u32 SERL_OBJ_EncodeStruct_OBJC_rad_raw_data_S(
+    u8* const byteArray,
+    const u32 byteArrayLength,
+    const struct OBJC_rad_raw_data_S* const p_value)
+{
+    u32 pos = 0;
+    if (byteArrayLength >= SERL_OBJ_OBJC_RAD_RAW_DATA_S_SIZE)
+    {
+        u32 tmpPos = 2U;
+        Encode_u16( byteArray, &pos, SERL_OBJ_ID_OBJC_RAD_RAW_DATA_S.id );
+        pos = 4U;
+        Encode_u8( byteArray, &pos, SERL_OBJ_ID_OBJC_RAD_RAW_DATA_S.version );
+        if(SERL_OBJ_OBJC_RAD_RAW_DATA_S_SIZE >= U16_MAX)
+        {
+            pos += 4U;
+        }
+        SO_Enc_struct_OBJC_rad_raw_data_S(byteArray, &pos, p_value);
+
+        if(SERL_OBJ_OBJC_RAD_RAW_DATA_S_SIZE >= U16_MAX)
+        {
+            Encode_u16( byteArray, &tmpPos, U16_MAX );
+            tmpPos = 5U;
+            Encode_u32( byteArray, &tmpPos, pos );
+        }
+        else
+        {
+            Encode_u16( byteArray, &tmpPos, (u16)pos );
+        }
+        _ASSERT((pos <= byteArrayLength) && (pos <= SERL_OBJ_OBJC_RAD_RAW_DATA_S_SIZE));
+    }
+    else
+    {
+        _ASSERT(FALSE); /* Not enough space */
+    }
+    return pos;
+}
+
+
+/* Decode function for OBJC_rad_raw_data_S */
+u32 SERL_OBJ_DecodeStruct_OBJC_rad_raw_data_S(
+    const u8* const byteArray,
+    const u32 byteArrayLength,
+    struct OBJC_rad_raw_data_S* const p_value)
+{
+    u32 pos;
+    u16 temp_length;
+    u8 version;
+
+    pos = 2U;
+    temp_length = Decode_u16( byteArray, &pos );
+    version = Decode_u8( byteArray, &pos );
+    if(temp_length == U16_MAX)
+    {
+       pos += 4U;
+    }
+    _ASSERT( SERL_OBJ_ID_OBJC_RAD_RAW_DATA_S.version == version );
+    SO_Dec_struct_OBJC_rad_raw_data_S(byteArray, &pos, p_value);
+    _ASSERT(pos <= byteArrayLength);
+
+    return pos;
+}
+

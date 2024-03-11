@@ -1,0 +1,41 @@
+/*
+ * msg_validator.c
+ *
+ *  Created on: Feb 29, 2024
+ *      Author: ismael
+ */
+
+
+void check_zipyheader_len(uint8_t *data, uint16_t *ptrOffset)
+{
+	/*check if zipy is an extended header*/
+	uint16_t *old_length = (uint16_t *) &data[2];
+	if(*old_length != 0xFFFF)
+	{
+		*ptrOffset = 4;
+	}
+	else
+	{
+		*ptrOffset = 9;
+	}
+
+}
+
+
+uint8_t check_validMessage(uint8_t *data)
+{
+	uint8_t  *zipy_socId 	  = data;
+	uint16_t *zipy_messageLen =(uint16_t*) &data[1];
+
+	uint16_t *serl_id 	   =(uint16_t*) &data[4];
+	uint16_t *serl_version =(uint16_t*) &data[8];
+
+	/*check soc id. Must equal 0x4*/
+	if(*socId != 0x4)
+		return -1;
+
+	if(*serl_id!= 0x4)
+		return -1;
+
+
+}

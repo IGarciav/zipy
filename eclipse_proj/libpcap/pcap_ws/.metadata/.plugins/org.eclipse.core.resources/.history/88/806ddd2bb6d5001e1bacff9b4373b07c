@@ -1,0 +1,104 @@
+/*
+ * main.c
+ *
+ *  Created on: Feb 26, 2024
+ *      Author: ismael
+ */
+
+
+/* Compile with: gcc main.c -lpcap */
+#include <stdio.h>
+#include <pcap/pcap.h>
+#include <pcap-int.h>
+
+#include <net/ethernet.h>
+#include <netinet/ip.h>
+#include <netinet/in.h>
+#include <netinet/tcp.h>
+#include <arpa/inet.h>
+
+
+void packetHandler(u_char *userData, const struct pcap_pkthdr* pkthdr, const u_char* packet);
+
+int main(int argc, char **argv) {
+    char *device; /* Name of device (e.g. eth0, wlan0) */
+    char error_buffer[PCAP_ERRBUF_SIZE]; /* Size defined in pcap.h */
+
+    /* Find a device */
+    device = pcap_lookupdev(error_buffer);
+    if (device == NULL) {
+        printf("Error finding device: %s\n", error_buffer);
+        return 1;
+    }
+	printf("hello worldss\n");
+
+    printf("Network device found: %s\n", device);
+
+
+    const char *fname = "20231219_114436___T0003.pcap";
+	char errbuff[100] = {0};
+
+
+
+    pcap_t *pcap_data = pcap_open_offline(fname,errbuff);
+
+    printf("bufsize: %d\n",pcap_data->bufsize);
+
+    uint8_t *data = (uint8_t*) &pcap_data->bp[0];
+    uint16_t i =0;
+    for(i=0;i<16;i++)
+    printf("bufsize: 0x%x\n",pcap_data->bp[i]);
+
+    if (pcap_loop(pcap_data, 0, packetHandler, NULL) < 0) {
+
+    }
+
+
+    return 0;
+}
+
+
+void packetHandler(u_char *userData, const struct pcap_pkthdr* pkthdr, const u_char* packet) {
+  const struct ether_header* ethernetHeader;
+  const struct ip* ipHeader;
+  const struct tcphdr* tcpHeader;
+  char sourceIp[INET_ADDRSTRLEN];
+  char destIp[INET_ADDRSTRLEN];
+  u_int sourcePort, destPort;
+  u_char *data;
+  int dataLength = 0;
+  char *dataStr = "";
+
+  ethernetHeader = (struct ether_header*)packet;
+  if (ntohs(ethernetHeader->ether_type) == ETHERTYPE_IP) {
+      ipHeader = (struct ip*)(packet + sizeof(struct ether_header));
+      inet_ntop(AF_INET, &(ipHeader->ip_src), sourceIp, INET_ADDRSTRLEN);
+      inet_ntop(AF_INET, &(ipHeader->ip_dst), destIp, INET_ADDRSTRLEN);
+
+      if (ipHeader->ip_p == IPPROTO_TCP) {
+          tcpHeader =  (packet + sizeof(struct ether_header) + sizeof(struct  ip));
+          sourcePort = ntohs(tcpHeader->source);
+          destPort = ntohs(tcpHeader->dest);
+          data = (u_char*)(packet + sizeof(struct ether_header) + sizeof(struct ip) + sizeof(struct tcphdr));
+          dataLength = pkthdr->len - (sizeof(struct ether_header) + sizeof(struct ip) + sizeof(struct tcphdr));
+
+          // convert non-printable characters, other than carriage return, line feed,
+          // or tab into periods when displayed.
+          for (int i = 0; i < dataLength; i++) {
+              if ((data[i] >= 32 && data[i] <= 126) || data[i] == 10 || data[i] == 11 || data[i] == 13) {
+                  dataStr += (char)data[i];
+              } else {
+//                  dataStr += ".";
+              }
+          }
+
+          // print the results
+          printf("%s : %s -> %s : %s\n",sourceIp,sourcePort,destIp,destPort);
+//          cout << sourceIp << ":" << sourcePort << " -> " << destIp << ":" << destPort << endl;
+          if (dataLength > 0) {
+//              cout << dataStr << endl;
+          }
+      }
+  }
+}
+
